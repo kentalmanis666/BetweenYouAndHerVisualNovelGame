@@ -315,20 +315,20 @@ label next2:
     scene black
     "Setelah mengobrol lama dengan ketir tiba tiba aku mendapat notif dari ica temen dari si robby & kipli. "
     menu:
-        "Melanjutkan telfon dengan ketir"
-        jump great22
+        "Melanjutkan telfon dengan ketir":
+            jump great22
 
-        "Mematikan telfon tiara dan membalas chat ica"
-        jump notgreat22
-        
+        "Mematikan telfon tiara dan membalas chat ica":
+            jump notgreat22
+
 label great22:
-    scene kamar ketir 
+    scene kamar ketir
     kr "......."
-    scene kamar pajar 
+    scene kamar pajar
     show pajar at left
     p "halo tir??"
     hide pajar
-    scene kamar ketik 
+    scene kamar ketir
     show ketir at right
     kr "iya iyaaa halo kenapa"
     hide ketir
@@ -340,14 +340,14 @@ label great22:
     show ketir at right
     kr "nyanyiin apa dulu nii ??"
     hide ketir
-    scene kamar pajar 
+    scene kamar pajar
     show pajar at left
     p "BALE BALE!"
-    hide pajar 
-    scene kamar ketir 
+    hide pajar
+    scene kamar ketir
     show ketir at right
     kr "iri bilang boss hahayyy"
-    hide ketir 
+    hide ketir
     scene kamar pajar
     show pajar at left
     p "BAL BALE BAL BALE BAL BALE BAL BALE BALEEEEEEEE!!!!"
@@ -357,29 +357,29 @@ label great22:
     show ketir at right
     kr "boleh bolehh awas aja becanda mulu *ketawa dikit*"
     hide ketir
-    scene kamar pajar 
+    scene kamar pajar
     show pajar at left
     p "*bernyanyi*......"
     hide pajar
     scene black
     "*bla**bla* *bla* tidak terasa malam pun semakin larut"
-    
-    scene kamar pajar 
-    show pajar at left 
+
+    scene kamar pajar
+    show pajar at left
     p "udah tidur sono udah malemm,sleepwell yaaa haha"
-    hide pajar 
-    scene kamar ketir 
-    show ketir at right 
+    hide pajar
+    scene kamar ketir
+    show ketir at right
     kr "iya iyaaa,kamu juga yooo dadaaa"
     hide ketir
-    jump 
+    jump next3
 
 label notgreat22:
-    scene kamar pajar 
+    scene kamar pajar
     show pajar at left
     p "udah dulu yaa udah malem kamu istirahat,aku juga lagi capee "
-    hide pajar 
-    scene kamar ketir 
+    hide pajar
+    scene kamar ketir
     show ketir at right
     kr "yaudah iyaaa"
     hide ketir
@@ -391,26 +391,200 @@ label notgreat22:
     show ica at right
     i "hai jarr,ini nomerku icaa"
     hide ica
-    scene kamar pajar 
+    scene kamar pajar
     show pajar at left
     p "haiii,dapet nomer ku dari manaa?"
     hide pajar
-    scene kamar ica 
+    scene kamar ica
     show ica at right
     i "tadi sebelum kamu pulang aku minta ke kipli hehee"
     hide ica
-    scene kamar pajar 
+    scene kamar pajar
     show pajar at left
     p "ohhh, iya ada apaa caa?"
     hide pajar
-    scene kamar ica 
+    scene kamar ica
     show ica at right
     i "gapapasi haha, save nomer ku yaaaw"
-    hide ica 
-    scene kamar pajar 
+    hide ica
+    scene kamar pajar
     show pajar at left
     p "oke caaa"
-    hide pajar    
-    
-    # this is the end of the game
+    hide pajar
+    jump next3
+
+label next3:
+    scene black
+    "Keesokan harinya sepulang kelas aku secara tidak sengaja bertemu dengan ica saat sedang berjalan ke arah parkiran dia menyapa ku dengan sangatt kerass."
+
+    scene koridor
+    show ica at left
+    i "PAJAAARRR!!! *berteriak sambil melambai*"
+
+    menu:
+
+        i "PAJAAARRR!!! *berteriak sambil melambai*"
+
+        "hai dari mana ca??":
+            jump next4
+
+        "*cuek*":
+            jump next4
+
+label next4:
+    scene koridor
+    show pajar at left
+    p "haii,dari mana ca??"
+    show ica at right
+    i "baru selese kelas sihhh"
+    jump next5
+
+label next5:
+    scene koridor
+    show pajar at left
+    p "samaaan ni baru selesai kelas haha,udah makan belom?,makan yuk?"
+    show ica at left
+    i "bolehh dimana??"
+    p "bu tatik lahh dimana lagii hahah"
+    i "ayokkkk"
+
+    scene black
+    "saat sedang asyik makan berdua dengan ica tiba tiba ketir datang dari belakang sambil menepuk pundakku"
+
+    scene bu tati
+    show ketir at left
+    kr "haii jarr"
+    hide ketir
+
+    menu:
+        kr "haii jarr"
+
+        "ajak nimbrung":
+            jump next6
+        "hanya menyapa":
+            jump notgreat3
+
+label notgreat3:
+    scene bu tati
+    show pajar at left
+    p "eh ketirrr,darimanaa?"
+    show ketir at right
+    kr "baru selesai kelass nii"
+    p "yaudah sini gabungg"
+label next6:
+    scene bu tati
+    show pajar at left
+    p "eh ketirrr,darimana??"
+    show ketir at right
+    kr "boleh gabung  gaa?"
+    p "bolehh sini gabungg"
+    hide pajar
+    show ica at left
+    i "halooo, icaa *memperkenalkan diri*"
+    kr "haiii,ketirr"
+    i "temennya pajar?"
+    kr "iyaa temenn acara dulu di asrama"
+    i "iyaa temennya jugaa,kenal pas liat pertandingan basket "
+
+    menu:
+        "mengganti topik pembicaraan":
+            jump next7
+        "memesan makanan":
+            jump next8
+
+label next7:
+    show pajar at left
+    p "kalian mau pesen apa?"
+    show ketir at right
+    kr "sama kaya kamu minumnya esteh yaa"
+    hide ketir
+    jump next8
+label next8:
+    scene bu tati
+    show pajar at left
+    show ica at right
+    i "aku juga samain sama kamu tapi minumnya jeruk anget"
+    p "oke2 bentar yaaa"
+
+    p "tunggu ya antri agak lama"
+    show ica at left
+    i "gapapaa kok"
+    hide ica
+    show ketir at left
+    kr "iyaa gapapa jar"
+    show pajar at left
+    p "abis ini ada kelas lagi ga??"
+    show ketir at right
+    kr "ada cuma nanti si jam 8"
+    hide ketir
+    show ica at right
+    i "udah gaada jar"
+    scene black
+    "Setelah mengobrol agak lama,makanan kami pun akhirnya datang"
+    scene bu tati
+    show pajar at left
+    p "makan dulu gihh"
+    i "*makan*"
+    kr "*makan*"
+    scene bu tati
+    "*nom**nom**nom**nom*....."
+    show ketir at left
+    kr "aku duluan ya bentar lagi kelas dimulaii,daaah!"
+    hide ketir
+    show pajar at left
+    p "daaa ati2 yaa"
+    show ica at right
+    i "oke tirr"
+
+    menu:
+
+        "langsung pulang":
+            jump next9 
+        "mengajak ica keluar":
+            jump next10
+label next9:
+    scene bu tati
+    show ica at right
+    i "yaudah jar aku pulang dulu ya?"
+    hide ica
+    show pajar at left
+    p "aku anterin pulang ya??"
+    show ica at right
+    i "bolehhh ayok"
+    jump next11
+label next10:
+    scene bu tati
+    show ica at right
+    i "yaudah jar aku pulang dulu yaa"
+    show pajar at left
+    p "langsung pulang ni??ngga mau kemana dulu gitu?"
+    i "ayokk, mau kemana emang?"
+    p "kemana aja dah"
+    i "bolehh tapi jangan malem2 ya pulangnyaa"
+    p "oke caa santaii" 
+    jump next11
+
+label next11:
+    scene black
+    "Setelah mengantar ica pulang aku langsung tertidur tanpa sadar ternyata mendapat pesan dari ketir meminta jemput sehabis kelas aku pun terbangun dan segera membalas pesan dari ketir" 
+    "keesokan harinya aku kembali diajak robby dan kipli seperti biasa kami berkumpul di salah satu café dekat kampus disitu aku mengajak ketir, disana kami tertawa pulas sampai tidak sadar sudah tengah malam. ketir pun meminta pulang disaat perjalanan pulang. "
+
+    menu:
+        "Menyatakan perasaan": 
+            jump great23
+        "MEngantar pulang":
+            jump notgreat23
+            
+label great23:
+    scene jalan malam
+
+    show pajar at left 
+    p "eeehhh tirrr....."
+    hide
+    show ketir at right
+    kr "kenapa jarr?"
+    hide ketir
+    show pajar at left
+    p "jadi kita kan udah lama kenal, aku Cuma mau ngomong kalo aku suka sama kamu" 
+    p "aku juga udah lama narok perasaan ke kamu, kamu mau ngga jadi pacarku?"                               
     return
