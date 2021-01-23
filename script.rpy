@@ -165,10 +165,11 @@ label start:
     menu:
             i "halo jar"
 
-            "kamu suka makan katak ga":
-            jump great1
+            "kamu suka makan katak gaa":
+                jump great1
+
             "gimana latihan basketnya":
-            jump average
+                jump average
 label great1:
         scene cafe
         show pajar at left
@@ -206,10 +207,11 @@ label next1:
 
 menu:
         kr "haloo jar"
-        "meminta maaf karena lama membalas pesan":
-            jump notgreat2
-        "memulai obrolan ringan":
+        "minta maaf karena lama membalas pesan":
             jump great2
+
+        "memulai obrolan ringan":
+            jump notgreat2
 
 label great2:
     scene kamar pajar
@@ -269,10 +271,11 @@ label notgreat2:
 
     menu:
         kr "gapapa kok jar"
-        "aku ajak makan deh":
-        jump great21
-"aku kerumah mu":
-        jump notgreat21
+        "aku ajak makan dehhhh":
+            jump great21
+
+        "aku kerumah mu ya?":
+            jump notgreat21
 label great21:
     scene kamar pajar
     show pajar at left
@@ -311,41 +314,103 @@ label notgreat21:
 label next2:
     scene black
     "Setelah mengobrol lama dengan ketir tiba tiba aku mendapat notif dari ica temen dari si robby & kipli. "
+    menu:
+        "Melanjutkan telfon dengan ketir"
+        jump great22
 
-
-    scene cafe
-
+        "Mematikan telfon tiara dan membalas chat ica"
+        jump notgreat22
+        
+label great22:
+    scene kamar ketir 
+    kr "......."
+    scene kamar pajar 
+    show pajar at left
+    p "halo tir??"
+    hide pajar
+    scene kamar ketik 
+    show ketir at right
+    kr "iya iyaaa halo kenapa"
+    hide ketir
     scene kamar pajar
-
+    show pajar at left
+    p "mau kunyanyiin gaa??"
+    hide pajar
     scene kamar ketir
+    show ketir at right
+    kr "nyanyiin apa dulu nii ??"
+    hide ketir
+    scene kamar pajar 
+    show pajar at left
+    p "BALE BALE!"
+    hide pajar 
+    scene kamar ketir 
+    show ketir at right
+    kr "iri bilang boss hahayyy"
+    hide ketir 
+    scene kamar pajar
+    show pajar at left
+    p "BAL BALE BAL BALE BAL BALE BAL BALE BALEEEEEEEE!!!!"
+    p "wkwkwkkwk,serius nih, ku nyanyiin lagu favoritku"
+    hide pajar
+    scene kamar ketir
+    show ketir at right
+    kr "boleh bolehh awas aja becanda mulu *ketawa dikit*"
+    hide ketir
+    scene kamar pajar 
+    show pajar at left
+    p "*bernyanyi*......"
+    hide pajar
+    scene black
+    "*bla**bla* *bla* tidak terasa malam pun semakin larut"
+    
+    scene kamar pajar 
+    show pajar at left 
+    p "udah tidur sono udah malemm,sleepwell yaaa haha"
+    hide pajar 
+    scene kamar ketir 
+    show ketir at right 
+    kr "iya iyaaa,kamu juga yooo dadaaa"
+    hide ketir
+    jump 
+
+label notgreat22:
+    scene kamar pajar 
+    show pajar at left
+    p "udah dulu yaa udah malem kamu istirahat,aku juga lagi capee "
+    hide pajar 
+    scene kamar ketir 
+    show ketir at right
+    kr "yaudah iyaaa"
+    hide ketir
+
+    scene black
+    "....................."
 
     scene kamar ica
-
-    scene kamar pajar
-
-    scene jalan parkiran
-
-    scene bu tatik
-
-    scene jalan malam
-
-    scene kamar pajar
-
-    scene kampus malam
-
-    scene  kamar pajar
-
-    scene cafe
-
-    scene jalan malam
-
-    scene lapangan
-
-    scene resto
-
-    scene jalan malam
-
-    scene ending bahagia
-
+    show ica at right
+    i "hai jarr,ini nomerku icaa"
+    hide ica
+    scene kamar pajar 
+    show pajar at left
+    p "haiii,dapet nomer ku dari manaa?"
+    hide pajar
+    scene kamar ica 
+    show ica at right
+    i "tadi sebelum kamu pulang aku minta ke kipli hehee"
+    hide ica
+    scene kamar pajar 
+    show pajar at left
+    p "ohhh, iya ada apaa caa?"
+    hide pajar
+    scene kamar ica 
+    show ica at right
+    i "gapapasi haha, save nomer ku yaaaw"
+    hide ica 
+    scene kamar pajar 
+    show pajar at left
+    p "oke caaa"
+    hide pajar    
+    
     # this is the end of the game
     return
