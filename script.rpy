@@ -615,10 +615,10 @@ label great23:
     show pajar at left
     p "hah? iyaa? iya aapa dulu ni *berhenti secara tiba2* "
     kr "iya mauuu"
-    if love_ketir > 7:
+    if love_ketir > 2:
         call ending_ketir
         return
-    elif love_ica > 7:
+    elif love_ica > 2:
         call ending_ica
         return
     else:
@@ -647,10 +647,10 @@ label notgreat23:
     kr "sorry jar, bukannya apa apa si kita kan Cuma temen ngga lebih lagian kita juga baru kenal beberapa minggu"
     show pajar at left
     p "...... *terdiam*"
-    if love_ketir > 7:
+    if love_ketir > 2:
         call ending_ketir
         return
-    elif love_ica > 7:
+    elif love_ica > 2:
         call ending_ica
         return
     else:
