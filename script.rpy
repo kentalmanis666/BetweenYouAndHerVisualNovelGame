@@ -13,8 +13,9 @@ define r = Character("Robby")
 # The game starts here.
 
 label start:
-    $ ketir_love = 0
-    $ ica_love = 0
+
+    $ love_ketir = 0
+    $ love_ica = 0
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
@@ -75,13 +76,13 @@ label start:
 
         "mengantar dan mampir membeli makanan":
             jump great
-
+            $ ketir_love += 1
         "aku tidak ingin mengantarnya pulang":
             jump notgreat
-
+            $ ketir_love -= 1
         "memesan gojek untuk ketir":
             jump notgreat1
-
+            $ ketir_love -= 1
     label great:
         scene cafe
         show pajar at left
@@ -167,9 +168,10 @@ label start:
 
             "kamu suka makan katak gaa":
                 jump great1
-
+                $ ica_love += 2
             "gimana latihan basketnya":
                 jump average
+                $ ica_love += 1
 label great1:
         scene cafe
         show pajar at left
@@ -209,10 +211,11 @@ menu:
         kr "haloo jar"
         "minta maaf karena lama membalas pesan":
             jump great2
+            $ love_ketir += 2
 
         "memulai obrolan ringan":
             jump notgreat2
-
+            $ love_ketir -= 1
 label great2:
     scene kamar pajar
     show pajar at left
@@ -273,9 +276,11 @@ label notgreat2:
         kr "gapapa kok jar"
         "aku ajak makan dehhhh":
             jump great21
+            $ love_ketir += 1
 
         "aku kerumah mu ya?":
             jump notgreat21
+            $ love_ketir -= 1
 label great21:
     scene kamar pajar
     show pajar at left
@@ -317,9 +322,11 @@ label next2:
     menu:
         "Melanjutkan telfon dengan ketir":
             jump great22
+            $ love_ketir += 1
 
         "Mematikan telfon tiara dan membalas chat ica":
             jump notgreat22
+            $ love_ica += 1
 
 label great22:
     scene kamar ketir
@@ -427,9 +434,10 @@ label next3:
 
         "hai dari mana ca??":
             jump next4
-
+            $ love_ica += 1
         "*cuek*":
             jump next4
+            $ love_ica += 1
 
 label next4:
     scene koridor
@@ -461,7 +469,9 @@ label next5:
 
         "ajak nimbrung":
             jump next6
+            $ love_ketir +=1
         "hanya menyapa":
+            $ love_ica +=1
             jump notgreat3
 
 label notgreat3:
@@ -480,8 +490,8 @@ label next6:
     p "bolehh sini gabungg"
     hide pajar
     show ica at left
-    i "halooo, icaa *memperkenalkan diri*"
-    kr "haiii,ketirr"
+    i "halooo,aku icaa *memperkenalkan diri*"
+    kr "haiii,aku ketirr *memperkenalkan diri*"
     i "temennya pajar?"
     kr "iyaa temenn acara dulu di asrama"
     i "iyaa temennya jugaa,kenal pas liat pertandingan basket "
@@ -539,9 +549,13 @@ label next8:
     menu:
 
         "langsung pulang":
-            jump next9 
+            $ love_ica += 1
+            jump next9
+
         "mengajak ica keluar":
+            $ love_ica += 2
             jump next10
+
 label next9:
     scene bu tati
     show ica at right
@@ -561,30 +575,113 @@ label next10:
     i "ayokk, mau kemana emang?"
     p "kemana aja dah"
     i "bolehh tapi jangan malem2 ya pulangnyaa"
-    p "oke caa santaii" 
+    p "oke caa santaii"
     jump next11
 
 label next11:
     scene black
-    "Setelah mengantar ica pulang aku langsung tertidur tanpa sadar ternyata mendapat pesan dari ketir meminta jemput sehabis kelas aku pun terbangun dan segera membalas pesan dari ketir" 
+    "Setelah mengantar ica pulang aku langsung tertidur tanpa sadar ternyata mendapat pesan dari ketir meminta jemput sehabis kelas aku pun terbangun dan segera membalas pesan dari ketir"
     "keesokan harinya aku kembali diajak robby dan kipli seperti biasa kami berkumpul di salah satu café dekat kampus disitu aku mengajak ketir, disana kami tertawa pulas sampai tidak sadar sudah tengah malam. ketir pun meminta pulang disaat perjalanan pulang. "
 
     menu:
-        "Menyatakan perasaan": 
+        "Menyatakan perasaan":
+            $ love_ketir += 3
             jump great23
-        "MEngantar pulang":
+
+        "Mengantar pulang":
+            $ love_ketir -= 20
             jump notgreat23
-            
+
 label great23:
     scene jalan malam
 
-    show pajar at left 
+    show pajar at left
     p "eeehhh tirrr....."
-    hide
+    hide pajar
     show ketir at right
     kr "kenapa jarr?"
     hide ketir
     show pajar at left
-    p "jadi kita kan udah lama kenal, aku Cuma mau ngomong kalo aku suka sama kamu" 
-    p "aku juga udah lama narok perasaan ke kamu, kamu mau ngga jadi pacarku?"                               
+    p "jadi kita kan udah lama kenal, aku Cuma mau ngomong kalo aku suka sama kamu"
+    p "aku juga udah lama narok perasaan ke kamu, kamu mau ngga jadi pacarku?"
+    show ketir at right
+    kr "gimana gimana jar?"
+    hide ketir
+    show pajar at left
+    p "yaaah gituu kamu mau ga?"
+    hide pajar
+    show ketir at right
+    kr "kenapa nanya??"
+    show pajar at left
+    p "hah? iyaa? iya aapa dulu ni *berhenti secara tiba2* "
+    kr "iya mauuu"
+    if love_ketir > 7:
+        call ending_ketir
+        return
+    elif love_ica > 7:
+        call ending_ica
+        return
+    else:
+
+        call alone_ending
+        return
+label notgreat23:
+    scene jalan malam
+
+    show pajar at left
+    p "eeehhh tirrr....."
+    hide pajar
+    show ketir at right
+    kr "kenapa jarr?"
+    hide ketir
+    show pajar at left
+    p "jadi kita kan udah lama kenal, aku Cuma mau ngomong kalo aku suka sama kamu"
+    p "aku juga udah lama narok perasaan ke kamu, kamu mau ngga jadi pacarku?"
+    show ketir at right
+    kr "gimana gimana jar?"
+    hide ketir
+    show pajar at left
+    p "yaaah gituu kamu mau ga?"
+    hide pajar
+    show ketir at right
+    kr "sorry jar, bukannya apa apa si kita kan Cuma temen ngga lebih lagian kita juga baru kenal beberapa minggu"
+    show pajar at left
+    p "...... *terdiam*"
+    if love_ketir > 7:
+        call ending_ketir
+        return
+    elif love_ica > 7:
+        call ending_ica
+        return
+    else:
+
+        call alone_ending
+        return
+
+label ending_ketir:
+    "aku sangat Bahagia karena telah berani menyatakan perasaan ku pada ketir dan dijawab dengan dia.
+Aku Bahagia karena telah mendapat perempuan yang sangat mengerti aku."
+return
+label ending_ica:
+    scene black
+    "aku merasa sangat kecewa setelah menyatakan perasaanku pada ketir, karena sikapku yang terlalu menyepelekan semua kebaikan yang telah dia lakukan."
+    "Keesokan harinya setelah mengantar ketir pulang aku melihat ica sedang Latihan basket, aku menunggu dia selesai latihan dan mencoba berbicara dengan dia."
+
+    scene lapangan
+
+    show pajar at left
+    p "hai caa,cape banget kayanya :)"
+    show ica at right
+    i "ngga juga kok jar, kamu darimana emang?"
+    p "hehehe, ini mau ada kelas cuma nanti si sekitar jam 11"
+    i "oalah iyaiyaa, selesai jam berapa kelasnya?"
+    p "sekitar jam 12 si kenapa"
+    i "sama sii aku juga ada kelas jam 11 selesainya juga jam 12"
+
+
+label alone_ending:
+    "Akhirnya aku memutuskan untuk tidak mendekati siapapun, mungkin ini bukan cinta, ini hanya rasa penasaran yang muncul karena aku sudah menghabiskan hari hari ku dengan mereka. Aku tak sedih aku pun tidak menyesal walaupun aku tidak mendapatkan salah satu dari mereka karena yang aku true love doesn’t exist.
+THIS IS THE ENDING OF MY STORY BETWEEN YOU AND HER"
+
+
     return
