@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -200,7 +200,7 @@ label next1:
         scene black
         "pulang dari sana aku langsung menuju kos hendak untuk beristirahat. Tapi, setelah melihat hp ternyata ada pesan yang belum kubalas dari ketir, akhirnya aku menelfon dia untuk mengatahui bagaimana kabarnya hari ini."
         scene kamar pajar
-        show pajar in left
+        show pajar at left
         p "haloo tir"
         hide pajar
         scene kamar ketir
@@ -229,7 +229,7 @@ label great2:
     show pajar at left
     p "sibuk ga?"
     hide pajar
-    scene kamar petir
+    scene kamar ketir
     show ketir at right
     kr "ngga juga si jar kenapa?"
     hide ketir
@@ -659,8 +659,10 @@ label notgreat23:
         return
 
 label ending_ketir:
+    scene black
     "aku sangat Bahagia karena telah berani menyatakan perasaan ku pada ketir dan dijawab dengan dia.
 Aku Bahagia karena telah mendapat perempuan yang sangat mengerti aku."
+"TAMAT"
 return
 label ending_ica:
     scene black
@@ -678,10 +680,102 @@ label ending_ica:
     p "sekitar jam 12 si kenapa"
     i "sama sii aku juga ada kelas jam 11 selesainya juga jam 12"
 
+menu:
+    "Mengajak pulang bersama":
+        $ love_ketir += 1
+        jump great24
 
+    "Mengajak ica makan":
+        $ love_ketir += 2
+        jump notgreat24
+
+label great24:
+    scene lapangan
+    show pajar at left
+    p "ohhh,ntar pulang bareng yuk?"
+    show ica at right
+    i "gapapa emang?"
+    scene black
+    "Setelah kelas pun aku mengantarkan ica pulang"
+    jump next12
+label notgreat24:
+    scene lapangan
+    show pajar at left
+    p "eeh,abis kelas ntar kosong ga??"
+    show ica at right
+    i "kosongg sii,kenapaa jarr??"
+    p "makan yuk?,pasti cape kan abis latihan?,aku traktir dehh *hahaha*"
+    i "bener nii?,hahaha,ayokkk"
+    p "yaudah sampe ketemu nanti yoo"
+    i "okeeee,dadaa"
+    scene black
+    "Setelah makan aku pun mengantar ica pulang"
+    jump next12
+
+label next12:
+    scene black
+    "Disaat tengah perjalanan pulang kami bercanda mentertawakan semua yang lewat"
+    scene jalan pagi
+    show pajar at left
+    p "kamu suka makan komodo ga?"
+    hide pajar
+    show ica at right
+    i "apaasi jar udah basi,hahahaha"
+    hide ica
+    menu:
+
+            "to the point kepada ica":
+                $ love_ica += 5
+                jump great25
+
+            "Ga ngomong ke ica ":
+                $ love_ica += 0
+                jump notgreat25
+
+label great25:
+    scene jalan pagi
+    show pajar at left
+    p "wkwk, bingung mau gimana ngomongnya ca"
+    hide pajar
+    show ica at right
+    i "mau ngomng apa sii,santai kaliii haha"
+    hide ica
+    show pajar at left
+    p "jadi gini ca, aku tau kita blom lama kenal cuman dari pertama kita ketemu aku udah suka sama kamu, jadi… kamu mau ngga jadi pacarku?"
+    show ica at right
+    i "hah? kok tiba2 banget*kaget*"
+    p "aku ngerasa sekarang waktu yang tepat buat nyatain perasaan ku ke kamu"
+    i "iyaa aku tau kita blom lama kenal, aku juga udah tau kamu gimana kok,jadii"
+    p "jadi???"
+    hide ica
+    i "......."
+    show ica at right
+    i "iyaa mauu pajarr *tersenyum malu*"
+    p "hahh?? *tersenyum senang*"
+    if love_ica > 2:
+        call ending_ica1
+        return
+    else:
+
+        call alone_ending
+        return
+label notgreat25:
+    scene rumah ica
+    show ica at left
+    i "makasii ya jarrr,byeee *melambaikan tangannya*"
+    call alone_ending
+    return
+label ending_ica1:
+    scene black
+    "Setelah lama menyatakan perasaanku pada ica dan lama berpacaran dengan ica aku akhrinya tau bagaimana dia sebenarnya, dia memang cantik dan dia memang idaman cowo di angkatanku. Tapi aku tau, dia bukan yang terbaik untukku"
+    "TAMAT"
 label alone_ending:
-    "Akhirnya aku memutuskan untuk tidak mendekati siapapun, mungkin ini bukan cinta, ini hanya rasa penasaran yang muncul karena aku sudah menghabiskan hari hari ku dengan mereka. Aku tak sedih aku pun tidak menyesal walaupun aku tidak mendapatkan salah satu dari mereka karena yang aku true love doesn’t exist.
+    scene black
+    "Akhirnya aku memutuskan untuk tidak mendekati siapapun, mungkin ini bukan cinta, ini hanya rasa penasaran yang muncul karena aku sudah menghabiskan hari hari ku dengan mereka."
+    "Aku tak sedih aku pun tidak menyesal walaupun aku tidak mendapatkan salah satu dari mereka karena yang aku true love doesn’t exist.
 THIS IS THE ENDING OF MY STORY BETWEEN YOU AND HER"
+    "TAMAT"
+
 
 
     return
